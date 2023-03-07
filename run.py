@@ -35,3 +35,5 @@ while chances < max_chances and not true_check:
                 print(colored(splitted_input[i], 'red'), end=" ")
             else:
                 print(splitted_input[i], end=" ")
+
+        else:        
