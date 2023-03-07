@@ -44,5 +44,10 @@ while chances < max_chances and not true_check:
             elif splitted_input[i] in splitted_random_word:
                 print(colored(splitted_input[i], 'red'))
             else:
-                print(splitted_input[i])      
+                print(splitted_input[i])     
+        if true_check_counter < 4:
+            pass
+        else:
+            true_check = True 
+    
     chances += 1 
