@@ -51,3 +51,8 @@ while chances < max_chances and not true_check:
             true_check = True 
     
     chances += 1 
+
+if true_check:
+    print("You guessed the word!")
+else: 
+    print("You couldn't guess the correct word! It was", random_words)
