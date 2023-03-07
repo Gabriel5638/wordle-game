@@ -21,3 +21,7 @@ print("/n******Title of game******\n")
 while chances < max_chances and not true_check:
     user_input = input("Guess: ")
     splitted_input = ([*user_input])
+    true_check_counter = 0
+
+    if len(splitted_input) > 5 or len(splitted_input) < 5:
+        print("Please enter a word with only 5 letters ")
