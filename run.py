@@ -1,3 +1,23 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import random
+from termcolor import colored
+
+chances = 0
+max_chances = 5 
+true_check = False
+
+words = [
+        "cat",
+        "dog",
+        "rat",
+        "hat",
+        "mat",
+]
+
+random_words = random.choice(words)
+splitted_random_word = ([*random_words])
+
+print("/n******Title of game******\n")
+
+while chances < max_chances and not true_check:
+    user_input = input("Guess: ")
+    splitted_input = ([*user_input])
