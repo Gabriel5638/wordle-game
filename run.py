@@ -1,5 +1,5 @@
 """
-Imports the color for the words.
+Imports the color for the words and randomizes word list
 """
 
 import random
@@ -15,12 +15,13 @@ words = [
     "flute",
     "eagle",
     "house",
+    "snake",
 ]
 
 random_words = random.choice(words)
 splitted_random_word = [*random_words]
 
-print("\n******Title of game******\n")
+print("\n******Wordle******\n")
 
 while CHANCES < MAX_CHANCES and not TRUE_CHECK:
     user_input = input("Guess: ")
@@ -37,7 +38,7 @@ while CHANCES < MAX_CHANCES and not TRUE_CHECK:
                     print(colored(word, 'green'), end=" ")
                     TRUE_CHECK_COUNTER += 1
                 elif word in splitted_random_word:
-                    # Print the word in red if it is incorrect
+                    # Print the letter color if letter is correct
                     print(colored(word, 'red'), end=" ")
                 else:
                     # Print the word without color if it is not present
