@@ -4,6 +4,7 @@ Imports the color for the words and randomizes word list
 
 import random
 from termcolor import colored
+from art import text2art
 
 CHANCES = 0
 MAX_CHANCES = 5
@@ -21,7 +22,8 @@ words = [
 random_words = random.choice(words)
 splitted_random_word = [*random_words]
 
-print("\n******Wordle******\n")
+my_art = text2art("Lets Play, Wordle!")
+print(my_art)
 
 while CHANCES < MAX_CHANCES and not TRUE_CHECK:
     user_input = input("Guess: ")
