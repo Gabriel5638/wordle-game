@@ -13,10 +13,18 @@ TRUE_CHECK = False
 words = [
     "tiger",
     "beach",
-    "flute",
+    "judge",
     "eagle",
     "house",
     "snake",
+    "rural",
+    "fable",
+    "cable",
+    "label",
+    "dance",
+    "watch",
+    "zebra",
+    "yacht",
 ]
 
 random_words = random.choice(words)
