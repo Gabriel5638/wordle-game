@@ -1,5 +1,5 @@
 """
-Imports the color for the words and randomizes word list
+Imports the color,randomizes word list and imports text art for title.
 """
 
 import random
