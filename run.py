@@ -73,3 +73,5 @@ if TRUE_CHECK:
     print("You guessed the word!")
 else:
     print("You couldn't guess the correct word! It was", random_words)
+
+# create 3 levels of difficulty 
