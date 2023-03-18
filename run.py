@@ -74,6 +74,15 @@ MAX_CHANCES = 5
 
 
 def get_word(level):
+    """
+    Function returns a random word from the list of words.
+    It also splits the word into a list of individual letters.
+    Args:
+    - level: a string indicating the level of difficulty.
+      ("easy", "medium", "hard", "nightmare",).
+    Returns:
+    - A list of letters in a randomly chosen word from the level's list.
+    """
     words = LEVELS[level]
     word = random.choice(words)
     splitted_word = [*word]
@@ -81,6 +90,17 @@ def get_word(level):
 
 
 def play_wordle(level):
+    """
+  Plays a game of Wordle with a specified level of difficulty. 
+  User has 5 chances to guess a random 5-letter word,associated with the level. 
+  Provides feedback on guessed letters. 
+  If user wins, they're notified.
+  If user loses,the correct word is revealed.   
+    Args:
+    - level: a string indicating the level of difficulty ("easy", "medium", "hard", or "nightmare")
+    Returns:
+    - None
+    """
     splitted_word = get_word(level)
     print(text2art("Let's Play Wordle!"))
     print(f"Level: {level}")
@@ -116,6 +136,7 @@ def play_wordle(level):
         print("You guessed the word!")
     else:
         print("You could not guess the word! it was", ''.join(splitted_word))
+
 
 def play_nightmare_wordle():
     play_wordle("nightmare")
