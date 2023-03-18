@@ -10,7 +10,7 @@ CHANCES = 0
 MAX_CHANCES = 5
 TRUE_CHECK = False
 
-words = [
+EASY_WORDS = [
     "tiger",
     "beach",
     "judge",
@@ -74,4 +74,4 @@ if TRUE_CHECK:
 else:
     print("You couldn't guess the correct word! It was", random_words)
 
-# create 3 levels of difficulty 
+# create 3 levels of difficulty.
