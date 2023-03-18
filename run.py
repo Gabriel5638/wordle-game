@@ -1,5 +1,5 @@
 """
-Imports the color,randomizes word list and imports text art for title.
+Imports the color, randomizes word list and imports text art for title.
 """
 
 import random
@@ -52,29 +52,34 @@ HARD_WORDS = [
 ]
 
 NIGHTMARE_WORDS = [
-    "kempt"
-    "quell"
-    "roque"
-    "phlox"
-    "sylph"
-    "nymph"
-    "pygmy"
-    "quate"
-    "unapt"
+    "kempt",
+    "quell",
+    "roque",
+    "phlox",
+    "sylph",
+    "nymph",
+    "pygmy",
+    "quate",
+    "unapt",
 ]
 
 LEVELS = {
-      "easy": EASY_WORDS,
-      "medium": MEDIUM_WORDS,
-      "hard": HARD_WORDS,
-      "nightmare": NIGHTMARE_WORDS,
+    "easy": EASY_WORDS,
+    "medium": MEDIUM_WORDS,
+    "hard": HARD_WORDS,
+    "nightmare": NIGHTMARE_WORDS,
 }
 
 MAX_CHANCES = 5
 
 def get_word(level):
-    word = get_word(level)
-    splitt_word = [*word]
+    words = LEVELS[level]
+    word = random.choice(words)
+    splitted_word = [*word]
+    return splitted_word
+
+def play_wordle(level):
+    splitted_word = get_word(level)
     print(text2art("Let's Play Wordle!"))
     print(f"Level: {level}")
     print("Guess a word with 5 letters")
@@ -82,50 +87,35 @@ def get_word(level):
     chances = 0
     true_check = False
 
-random_words = random.choice(words)
-splitted_random_word = [*random_words]
+    while chances < MAX_CHANCES and not true_check:
+        user_input = input("Guess: ")
+        splitted_input = [*user_input]
+        true_check_counter = 0
 
-my_art = text2art("Lets Play, Wordle!")
-print(my_art)
-
-while CHANCES < MAX_CHANCES and not TRUE_CHECK:
-    user_input = input("Guess: ")
-    splitted_input = [*user_input]
-    TRUE_CHECK_COUNTER = 0
-
-    if len(splitted_input) != 5:
-        print("Please enter a word with only 5 letters ")
-        for i, word in enumerate(splitted_input):
-            if i != len(splitted_input) - 1:
-                if word == splitted_random_word[i]:
-                    # Print the word in green if it is correct
-                    print(colored(word, 'green'), end=" ")
-                    TRUE_CHECK_COUNTER += 1
-                elif word in splitted_random_word:
-                    # Print the letter color if letter is correct
-                    print(colored(word, 'red'), end=" ")
-                else:
-                    # Print the word without color if it is not present
-                    print(word, end=" ")
-            else:
-                if word == splitted_random_word[i]:
-                    print(colored(word, 'green'))
-                    TRUE_CHECK_COUNTER += 1
-                elif word in splitted_random_word:
-                    print(colored(word, 'red'))
-                else:
-                    print(word)
-
-        if TRUE_CHECK_COUNTER < 4:
-            pass
+        if len(splitted_input) != 5:
+            print("Please enter a word with exactly 5 letters ")
         else:
-            TRUE_CHECK = True
+            for i, letter in enumerate(splitted_input):
+                if letter == splitted_word[i]:
+                    print(colored(letter, 'green'), end=" ")
+                    true_check_counter += 1
+                elif letter in splitted_word:
+                    print(colored(letter, 'red'), end=" ")
+                else:
+                    print(letter, end=" ")
+            print("")
 
-        CHANCES += 1
+            if true_check_counter == 5:
+                true_check = True
 
-if TRUE_CHECK:
-    print("You guessed the word!")
-else:
-    print("You couldn't guess the correct word! It was", random_words)
+            chances += 1
 
-# create 3 levels of difficulty.
+    if true_check:
+        print("You guessed the word!")
+    else:
+        print("You couldn't guess the correct word! It was", ''.join(splitted_word))
+
+def play_nightmare_wordle():
+    play_wordle("nightmare")
+
+play_nightmare_wordle()
