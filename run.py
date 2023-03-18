@@ -6,10 +6,6 @@ import random
 from termcolor import colored
 from art import text2art
 
-CHANCES = 0
-MAX_CHANCES = 5
-TRUE_CHECK = False
-
 EASY_WORDS = [
     "tiger",
     "beach",
@@ -73,6 +69,18 @@ LEVELS = {
       "hard": HARD_WORDS,
       "nightmare": NIGHTMARE_WORDS,
 }
+
+MAX_CHANCES = 5
+
+def get_word(level):
+    word = get_word(level)
+    splitt_word = [*word]
+    print(text2art("Let's Play Wordle!"))
+    print(f"Level: {level}")
+    print("Guess a word with 5 letters")
+    print("You have 5 chances to guess the correct word")
+    chances = 0
+    true_check = False
 
 random_words = random.choice(words)
 splitted_random_word = [*random_words]
