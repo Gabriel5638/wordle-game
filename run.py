@@ -93,9 +93,8 @@ while CHANCES < MAX_CHANCES and not TRUE_CHECK:
     splitted_input = [*user_input]
     TRUE_CHECK_COUNTER = 0
 
-    if len(splitted_input) > 5 or len(splitted_input) < 5:
+    if len(splitted_input) != 5:
         print("Please enter a word with only 5 letters ")
-    else:
         for i, word in enumerate(splitted_input):
             if i != len(splitted_input) - 1:
                 if word == splitted_random_word[i]:
