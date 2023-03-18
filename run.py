@@ -22,9 +22,49 @@ EASY_WORDS = [
     "cable",
     "label",
     "dance",
+]
+
+MEDIUM_WORDS = [ 
+    "grape",
+    "blitz",
+    "staff",
+    "patio",
+    "fjord",
+    "maple",
+    "funny",
+    "crypt",
+    "pixel",
     "watch",
     "zebra",
     "yacht",
+]
+
+HARD_WORDS = [
+    "nixie",
+    "quick",
+    "pizza",
+    "juked",
+    "zinky",
+    "xerus",
+    "xenon",
+    "whiff",
+    "wreck",
+    "vizor",
+    "venom",
+    "vexed",
+    "vivid",
+]
+
+NIGHTMARE_WORDS = [
+    "kempt"
+    "quell"
+    "roque"
+    "phlox"
+    "sylph"
+    "nymph"
+    "pygmy"
+    "quate"
+    "unapt"
 ]
 
 random_words = random.choice(words)
