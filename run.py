@@ -72,11 +72,13 @@ LEVELS = {
 
 MAX_CHANCES = 5
 
+
 def get_word(level):
     words = LEVELS[level]
     word = random.choice(words)
     splitted_word = [*word]
     return splitted_word
+
 
 def play_wordle(level):
     splitted_word = get_word(level)
@@ -113,9 +115,10 @@ def play_wordle(level):
     if true_check:
         print("You guessed the word!")
     else:
-        print("You couldn't guess the correct word! It was", ''.join(splitted_word))
+        print("You could not guess the word! it was", ''.join(splitted_word))
 
 def play_nightmare_wordle():
     play_wordle("nightmare")
+
 
 play_nightmare_wordle()
