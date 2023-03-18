@@ -67,6 +67,13 @@ NIGHTMARE_WORDS = [
     "unapt"
 ]
 
+LEVELS = {
+      "easy": EASY_WORDS,
+      "medium": MEDIUM_WORDS,
+      "hard": HARD_WORDS,
+      "nightmare": NIGHTMARE_WORDS,
+}
+
 random_words = random.choice(words)
 splitted_random_word = [*random_words]
 
