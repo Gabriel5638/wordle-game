@@ -4,6 +4,7 @@ Imports the color for the words and randomizes word list
 
 import random
 import sys
+import os
 from termcolor import colored
 from art import text2art
 
@@ -100,7 +101,7 @@ while CHANCES < MAX_CHANCES and not TRUE_CHECK:
         else:
             TRUE_CHECK = True
 
-        CHANCES += 1
+    CHANCES += 1
 
 if TRUE_CHECK:
     print("You guessed the word!")
@@ -111,11 +112,23 @@ play_again = input("Do you want to play again? (y/n): ")
 if play_again.lower() == "y":
     # Reset game variables
     CHANCES = 0
+    MAX_CHANCES = 5
     TRUE_CHECK = False
+    TRUE_CHECK_COUNTER = 0
+    CHANCES += 1
+
+    # Clear the console screen
+    os.system('clear')
+    # Choose a new random word
     random_words = random.choice(words)
     splitted_random_word = [*random_words]
+    # Display the game title
     my_art = text2art("Lets Play, Wordle!")
     print(my_art)
+    # Ask for the user's guess
+    user_input = input("Guess: ")
+    splitted_input = [*user_input]
+    # Play again messege
 elif play_again.lower() == "n":
     print("Thanks for playing!")
     sys.exit()
