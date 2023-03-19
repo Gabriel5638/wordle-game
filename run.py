@@ -1,67 +1,75 @@
 """
 Imports the color for the words and randomizes word list
 """
+
 import random
 from termcolor import colored
 from art import text2art
 
+CHANCES = 0
+MAX_CHANCES = 5
+TRUE_CHECK = False
 
-def play_wordle():
-    """
-    Plays a game of Wordle, with 5 max chances.
-    """
-    chances = 0
-    max_chances = 5
-    words = [
-        "tiger",
-        "beach",
-        "flute",
-        "judge",
-        "eagle",
-        "house",
-        "snake",
-        "rural",
-        "fable",
-        "cable",
-        "label",
-        "dance",
-        "watch",
-        "zebra",
-        "yacht",
-    ]
-    random_word = random.choice(words)
-    art = text2art("Let's Play, Wordle!")
-    print(art)
+words = [
+    "tiger",
+    "beach",
+    "judge",
+    "eagle",
+    "house",
+    "snake",
+    "rural",
+    "fable",
+    "cable",
+    "label",
+    "dance",
+    "watch",
+    "zebra",
+    "yacht",
+]
 
-    while chances < max_chances:
-        guess = input("Guess: ")
-        if len(guess) != 5:
-            print("Please enter a word with only 5 letters ")
-            continue
+random_words = random.choice(words)
+splitted_random_word = [*random_words]
 
-        # Check if the guess is correct
-        correct = [g == w for g, w in zip(guess, random_word)]
-        if all(correct):
-            print("You guessed the word!")
-            break
+my_art = text2art("Lets Play, Wordle!")
+print(my_art)
 
-        # Print the result of the guess
-        for i, letter in enumerate(guess):
-            if correct[i]:
-                print(colored(letter, "green"), end=" ")
-            elif letter in random_word:
-                print(colored(letter, "red"), end=" ")
-            else:
-                print(letter, end=" ")
-        print()
+while CHANCES < MAX_CHANCES and not TRUE_CHECK:
+    user_input = input("Guess: ")
+    splitted_input = [*user_input]
+    TRUE_CHECK_COUNTER = 0
 
-        chances += 1
-
-    if chances >= max_chances:
-        print("You couldn't guess the correct word! It was", random_word)
-
-    play_again = input("Do you want to play again? (y/n)").lower()
-    if play_again == "y":
-        play_wordle()
+    if len(splitted_input) > 5 or len(splitted_input) < 5:
+        print("Please enter a word with only 5 letters ")
     else:
-        print("Thanks for playing Wordle!")
+        for i, word in enumerate(splitted_input):
+            if i != len(splitted_input) - 1:
+                if word == splitted_random_word[i]:
+                    # Print the word in green if it is correct
+                    print(colored(word, 'green'), end=" ")
+                    TRUE_CHECK_COUNTER += 1
+                elif word in splitted_random_word:
+                    # Print the letter color if letter is correct
+                    print(colored(word, 'red'), end=" ")
+                else:
+                    # Print the word without color if it is not present
+                    print(word, end=" ")
+            else:
+                if word == splitted_random_word[i]:
+                    print(colored(word, 'green'))
+                    TRUE_CHECK_COUNTER += 1
+                elif word in splitted_random_word:
+                    print(colored(word, 'red'))
+                else:
+                    print(word)
+
+        if TRUE_CHECK_COUNTER < 4:
+            pass
+        else:
+            TRUE_CHECK = True
+
+        CHANCES += 1
+
+if TRUE_CHECK:
+    print("You guessed the word!")
+else:
+    print("You couldn't guess the correct word! It was", random_words)
