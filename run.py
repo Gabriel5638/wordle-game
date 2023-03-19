@@ -1,145 +1,67 @@
 """
-Imports the color, randomizes word list and imports text art for title.
+Imports the color for the words and randomizes word list
 """
-
 import random
 from termcolor import colored
 from art import text2art
 
-EASY_WORDS = [
-    "tiger",
-    "beach",
-    "judge",
-    "eagle",
-    "house",
-    "snake",
-    "rural",
-    "fable",
-    "cable",
-    "label",
-    "dance",
-]
 
-MEDIUM_WORDS = [ 
-    "grape",
-    "blitz",
-    "staff",
-    "patio",
-    "fjord",
-    "maple",
-    "funny",
-    "crypt",
-    "pixel",
-    "watch",
-    "zebra",
-    "yacht",
-]
-
-HARD_WORDS = [
-    "nixie",
-    "quick",
-    "pizza",
-    "juked",
-    "zinky",
-    "xerus",
-    "xenon",
-    "whiff",
-    "wreck",
-    "vizor",
-    "venom",
-    "vexed",
-    "vivid",
-]
-
-NIGHTMARE_WORDS = [
-    "kempt",
-    "quell",
-    "roque",
-    "phlox",
-    "sylph",
-    "nymph",
-    "pygmy",
-    "quate",
-    "unapt",
-]
-
-LEVELS = {
-    "easy": EASY_WORDS,
-    "medium": MEDIUM_WORDS,
-    "hard": HARD_WORDS,
-    "nightmare": NIGHTMARE_WORDS,
-}
-
-MAX_CHANCES = 5
-
-
-def get_word(level):
+def play_wordle():
     """
-    Function returns a random word from the list of words.
-    It also splits the word into a list of individual letters.
-    Args:
-    - level: a string indicating the level of difficulty.
-      ("easy", "medium", "hard", "nightmare",).
-    Returns:
-    - A list of letters in a randomly chosen word from the level's list.
+    Plays a game of Wordle, with 5 max chances.
     """
-    words = LEVELS[level]
-    word = random.choice(words)
-    splitted_word = [*word]
-    return splitted_word
-
-
-def play_wordle(level):
-    """
-  Plays a game of Wordle with a specified level of difficulty. 
-  User has 5 chances to guess a random 5-letter word,associated with the level. 
-  Provides feedback on guessed letters. 
-  If user wins, they're notified.
-  If user loses,the correct word is revealed.   
-    Args:
-    - level: a string indicating the level of difficulty ("easy", "medium", "hard", or "nightmare")
-    Returns:
-    - None
-    """
-    splitted_word = get_word(level)
-    print(text2art("Let's Play Wordle!"))
-    print(f"Level: {level}")
-    print("Guess a word with 5 letters")
-    print("You have 5 chances to guess the correct word")
     chances = 0
-    true_check = False
+    max_chances = 5
+    words = [
+        "tiger",
+        "beach",
+        "flute",
+        "judge",
+        "eagle",
+        "house",
+        "snake",
+        "rural",
+        "fable",
+        "cable",
+        "label",
+        "dance",
+        "watch",
+        "zebra",
+        "yacht",
+    ]
+    random_word = random.choice(words)
+    art = text2art("Let's Play, Wordle!")
+    print(art)
 
-    while chances < MAX_CHANCES and not true_check:
-        user_input = input("Guess: ")
-        splitted_input = [*user_input]
-        true_check_counter = 0
+    while chances < max_chances:
+        guess = input("Guess: ")
+        if len(guess) != 5:
+            print("Please enter a word with only 5 letters ")
+            continue
 
-        if len(splitted_input) != 5:
-            print("Please enter a word with exactly 5 letters ")
-        else:
-            for i, letter in enumerate(splitted_input):
-                if letter == splitted_word[i]:
-                    print(colored(letter, 'green'), end=" ")
-                    true_check_counter += 1
-                elif letter in splitted_word:
-                    print(colored(letter, 'red'), end=" ")
-                else:
-                    print(letter, end=" ")
-            print("")
+        # Check if the guess is correct
+        correct = [g == w for g, w in zip(guess, random_word)]
+        if all(correct):
+            print("You guessed the word!")
+            break
 
-            if true_check_counter == 5:
-                true_check = True
+        # Print the result of the guess
+        for i, letter in enumerate(guess):
+            if correct[i]:
+                print(colored(letter, "green"), end=" ")
+            elif letter in random_word:
+                print(colored(letter, "red"), end=" ")
+            else:
+                print(letter, end=" ")
+        print()
 
-            chances += 1
+        chances += 1
 
-    if true_check:
-        print("You guessed the word!")
+    if chances >= max_chances:
+        print("You couldn't guess the correct word! It was", random_word)
+
+    play_again = input("Do you want to play again? (y/n)").lower()
+    if play_again == "y":
+        play_wordle()
     else:
-        print("You could not guess the word! it was", ''.join(splitted_word))
-
-
-def play_nightmare_wordle():
-    play_wordle("nightmare")
-
-
-play_nightmare_wordle()
+        print("Thanks for playing Wordle!")
