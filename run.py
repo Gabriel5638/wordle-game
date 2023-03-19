@@ -3,8 +3,10 @@ Imports the color for the words and randomizes word list
 """
 
 import random
+import sys
 from termcolor import colored
 from art import text2art
+
 
 CHANCES = 0
 MAX_CHANCES = 5
@@ -82,7 +84,7 @@ while CHANCES < MAX_CHANCES and not TRUE_CHECK:
                     # Print the letter color if letter is correct
                     print(colored(word, 'red'), end=" ")
                 else:
-                    # Print the word without color if it is not present
+                    # Print the word white color if it is not present
                     print(word, end=" ")
             else:
                 if word == splitted_random_word[i]:
@@ -104,3 +106,18 @@ if TRUE_CHECK:
     print("You guessed the word!")
 else:
     print("You couldn't guess the correct word! It was", random_words)
+
+play_again = input("Do you want to play again? (y/n): ")
+if play_again.lower() == "y":
+    # Reset game variables
+    CHANCES = 0
+    TRUE_CHECK = False
+    random_words = random.choice(words)
+    splitted_random_word = [*random_words]
+    my_art = text2art("Lets Play, Wordle!")
+    print(my_art)
+elif play_again.lower() == "n":
+    print("Thanks for playing!")
+    sys.exit()
+else:
+    print("Invalid input. Please enter 'y' or 'n'.")
