@@ -3,7 +3,6 @@ Imports the color for the words and randomizes word list
 """
 
 import random
-import sys
 import os
 from termcolor import colored
 from art import text2art
@@ -17,14 +16,17 @@ TRUE_CHECK = False
 random_words = random.choice(words)
 splitted_random_word = [*random_words]
 
+
 def welcome():
     """Welcome method with artwork"""
     my_art = text2art("Lets Play, Wordle!")
     print(my_art)
 
+
 def instructions():
     """Method to print instrictions"""
     print("Instructions here")
+
 
 def game():
     """Method for the game loop"""
@@ -46,10 +48,10 @@ def game():
             os.system('clear')
             # Continue back to show the instructions
             continue
-        
+
         print("Thanks for playing!")
         break
-    
+
 
 def main():
     """Method to hold the main gme functionality"""
@@ -59,7 +61,7 @@ def main():
         user_input = input("Guess: ")
         splitted_input = [*user_input]
         TRUE_CHECK_COUNTER = 0
-​
+
         if len(splitted_input) > 5 or len(splitted_input) < 5:
             print("Please enter a word with only 5 letters ")
         else:
@@ -83,19 +85,20 @@ def main():
                         print(colored(word, 'red'))
                     else:
                         print(word)
-​
+
             if TRUE_CHECK_COUNTER < 4:
                 pass
             else:
                 TRUE_CHECK = True
-​
+
         CHANCES += 1
-​
-    if TRUE_CHECK:
-        print("You guessed the word!")
-    else:
-        print("You couldn't guess the correct word! It was", random_words)
-​
-​
+
+
+if TRUE_CHECK:
+    print("You guessed the word!")
+else:
+    print("You couldn't guess the correct word! It was", random_words)
+
+
 if __name__ == "__main__":
     game()
