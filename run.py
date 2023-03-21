@@ -27,7 +27,7 @@ def instructions():
     """Method to print instrictions"""
     print("Please enter a 5-letter word, you have 5 attempts!")
     print("Green letters are in the correct placement.")
-    print("Red letters are correct but in wrong placement.")
+    print("Red letters are correct but in the wrong placement.")
     print("Good luck!")
 
 
