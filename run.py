@@ -93,11 +93,10 @@ def main():
 
         CHANCES += 1
 
-
-if TRUE_CHECK:
-    print("You guessed the word!")
-else:
-    print("You couldn't guess the correct word! It was", random_words)
+    if TRUE_CHECK:
+        print("You guessed the word!")
+    else:
+        print("You couldn't guess the correct word! It was", random_words)
 
 
 if __name__ == "__main__":
