@@ -25,7 +25,10 @@ def welcome():
 
 def instructions():
     """Method to print instrictions"""
-    print("Instructions here")
+    print("Please enter a 5-letter word, you have 5 attempts!")
+    print("Green letters are in the correct placement.")
+    print("Red letters are correct but in wrong placement.")
+    print("Good luck!")
 
 
 def game():
