@@ -57,7 +57,7 @@ def game():
 
 
 def main():
-    """Method to hold the main gme functionality"""
+    """Method to hold the main game functionality"""
     global CHANCES
     global TRUE_CHECK
     while CHANCES < MAX_CHANCES and not TRUE_CHECK:
