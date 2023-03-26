@@ -3,6 +3,7 @@ Imports the color for the words and randomizes word list
 """
 
 import random
+import os
 from termcolor import colored
 from art import text2art
 from words_list import five_words as words
@@ -29,6 +30,7 @@ def game():
     """Method for the game loop"""
     play_again = 'y'
     while play_again.lower() == 'y':
+        os.system('cls' if os.name == 'nt' else 'clear')
         welcome()
         instructions()
         result = main()
