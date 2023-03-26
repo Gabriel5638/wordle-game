@@ -40,7 +40,7 @@ def game():
 
         play_again = input("Do you want to play again? (y/n): ")
 
-    print("Thanks for playing!")
+    print("Thank you for playing!")
 
 
 def main():
