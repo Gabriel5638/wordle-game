@@ -3,18 +3,9 @@ Imports the color for the words and randomizes word list
 """
 
 import random
-import os
 from termcolor import colored
 from art import text2art
 from words_list import five_words as words
-
-
-CHANCES = 0
-MAX_CHANCES = 5
-TRUE_CHECK = False
-
-random_words = random.choice(words)
-splitted_random_word = [*random_words]
 
 
 def welcome():
@@ -25,82 +16,64 @@ def welcome():
 
 def instructions():
     """Method to print instrictions"""
-    print("Please enter a 5-letter word, you have 5 attempts!")
+    print("Please enter a 5-letter word")
+    print("To guess the random hidden word!\n")
+    print("Entering more than 5 letter words still counts as a guess.")
+    print("Careful words with more or less than 5 letters don't show hints.\n")
     print("Green letters are in the correct placement.")
-    print("Red letters are correct but in the wrong placement.")
-    print("Good luck!")
+    print("Red letters are also correct but in the wrong placement.")
+    print("You have 10 attempts, good luck.")
 
 
 def game():
     """Method for the game loop"""
-    welcome()
-
-    while True:
+    play_again = 'y'
+    while play_again.lower() == 'y':
+        welcome()
         instructions()
-        main()
+        result = main()
+        if result[0]:
+            print("You guessed the word!")
+        else:
+            print("You couldn't guess the correct word! It was:")
+            print(result[1])
+
         play_again = input("Do you want to play again? (y/n): ")
-        if play_again.lower() == "y":
-            # Reset game variables
-            CHANCES = 0
-            MAX_CHANCES = 5
-            TRUE_CHECK = False
-            TRUE_CHECK_COUNTER = 0
-            CHANCES += 1
 
-            # Clear the console screen
-            os.system('clear')
-            # Continue back to show the instructions
-            continue
-
-        print("Thanks for playing!")
-        break
+    print("Thanks for playing!")
 
 
 def main():
     """Method to hold the main game functionality"""
-    global CHANCES
-    global TRUE_CHECK
-    while CHANCES < MAX_CHANCES and not TRUE_CHECK:
+    max_chances = 10
+    random_word = random.choice(words)
+    for _ in range(max_chances):
         user_input = input("Guess: ")
-        splitted_input = [*user_input]
-        TRUE_CHECK_COUNTER = 0
+        if len(user_input) != 5:
+            print("Only 5 letter words give hints!")
+            continue
 
-        if len(splitted_input) > 5 or len(splitted_input) < 5:
-            print("Please enter a word with only 5 letters ")
-        else:
-            for i, word in enumerate(splitted_input):
-                if i != len(splitted_input) - 1:
-                    if word == splitted_random_word[i]:
-                        # Print the word in green if it is correct
-                        print(colored(word, 'green'), end=" ")
-                        TRUE_CHECK_COUNTER += 1
-                    elif word in splitted_random_word:
-                        # Print the letter color if letter is correct
-                        print(colored(word, 'red'), end=" ")
-                    else:
-                        # Print the word white color if it is not present
-                        print(word, end=" ")
-                else:
-                    if word == splitted_random_word[i]:
-                        print(colored(word, 'green'))
-                        TRUE_CHECK_COUNTER += 1
-                    elif word in splitted_random_word:
-                        print(colored(word, 'red'))
-                    else:
-                        print(word)
-
-            if TRUE_CHECK_COUNTER < 4:
-                pass
+        true_check_counter = 0
+        color_dict = {}
+        for i, letter in enumerate(user_input):
+            if letter == random_word[i]:
+                color_dict[i] = 'green'
+                true_check_counter += 1
+            elif letter in random_word:
+                color_dict[i] = 'red'
             else:
-                TRUE_CHECK = True
+                color_dict[i] = 'white'
 
-        CHANCES += 1
+        colored_output = [
+            colored(letter, color_dict.get(i, 'white'))
+            for i, letter in enumerate(user_input)
+        ]
+        print(' '.join(colored_output))
 
-    if TRUE_CHECK:
-        print("You guessed the word!")
-    else:
-        print("You couldn't guess the correct word! It was", random_words)
+        if true_check_counter == 5:
+            return True, random_word
+
+    return False, random_word
 
 
-if __name__ == "__main__":
-    game()
+game()
