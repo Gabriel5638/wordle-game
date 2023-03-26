@@ -10,7 +10,7 @@ from words_list import five_words as words
 
 def welcome():
     """Welcome method with artwork"""
-    my_art = text2art("Lets Play, Wordle!")
+    my_art = text2art("Wordle")
     print(my_art)
 
 
