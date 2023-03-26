@@ -70,7 +70,11 @@ def main():
             colored(letter, color_dict.get(i, 'white'))
             for i, letter in enumerate(user_input)
         ]
-        print(' '.join(colored_output))
+        guess = ' '.join(colored_output)
+        guess_width = 20
+        guess = guess.center(guess_width)
+
+        print(f"|{guess}|")
 
         if true_check_counter == 5:
             return True, random_word
