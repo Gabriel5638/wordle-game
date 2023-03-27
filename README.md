@@ -163,7 +163,7 @@ The live site can be found here: (https://wordle-game-5638.herokuapp.com/)
 - Press enter to create the clone.
 
 # Credits
-- 
+- The code and game itself was inspired by [this youtube video](https://www.youtube.com/watch?v=04WgY32Nam4)
 - 
 - 
 - 
