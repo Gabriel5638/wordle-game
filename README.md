@@ -49,11 +49,12 @@ In Wordle, the user interacts with the game by inputting their guesses and recei
 
 ## Warning
 ![Warning](readme-images/warning.PNG)
+
 If the user enters a word with more or less than 5 letters, a message will appear informing the user that only words with 5 letters give hints.
 The warning serves as a crucial component of the game design as it reinforces the rules and expectations of the game. It also helps to prevent frustration on the part of the user, as they may become confused or discouraged if they are not informed of why their word was not accepted. Additionally, displaying a clear and concise error message helps to create a more user-friendly experience and improves the overall flow of the game. Overall, the word warning is an essential aspect of the game design that ensures the user can enjoy the game to its fullest potential.
 
 ## End Game Prompt
-![End-game](readme-docs/end.webp)
+![End](readme-images/prompt.PNG)
 
 After the user runs out of attempts, the game will display a message informing them that they have lost and revealing the hidden word. The user will then be prompted to play again. If the user correctly guesses the hidden word, a message will display congratulating them on their victory and prompting them to play again.
 
@@ -73,7 +74,6 @@ The original version was created by Jonathan Feinberg, a software engineer, in 2
 The Wordle game has since inspired many similar games and variations, including the version that allows for six attempts and includes a scoring system. This version has gained popularity on social media platforms such as Twitter, where users can share their attempts and scores with their followers. The game's simple yet challenging concept and easy-to-use interface have made it a popular pastime for people of all ages and backgrounds.
 
 ## Graphics
-![Graphics](readme-docs/graphics.webp)
 
 The game's graphical limitations stem from its terminal-based design. However, in order to enhance the user experience, ASCII art has been incorporated using the Text 2 Art library.The Termcolor library was also utilized to add visual emphasis to the usable letters in the game.
 
@@ -82,15 +82,13 @@ The game's graphical limitations stem from its terminal-based design. However, i
 
 ## Flowchart
 <details>
-<summary>Game Flowchart</summary>
+<summary>Game Flowchart, this was the first idea of how the game would work, ended up changing some small things along the way</summary>
 
-![Flowchart](readme-docs/game-diagram.webp)
+![Flowchart](readme-images/flowchart.PNG)
 </details>
 
 # Technologies Used
 
-- [HTML5](https://en.wikipedia.org/wiki/HTML5): mark-up language.
-- [CSS3](https://en.wikipedia.org/wiki/CSS): styling.
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language)): programming language.
   - Libraries:
     - Random:  A built-in Python library used for generating random numbers and sequences, which was used in this project to select a random word from the list of available words.
@@ -106,25 +104,24 @@ The game's graphical limitations stem from its terminal-based design. However, i
 
 
 
-## Lighthouse
+## Lighthouse Test
+  ![Lighthouse](readme-images/lighthouse.PNG)
 
-lighthoust tests 
+
 
 
 ## Testing Functionality
-
-The game was tested throughout production when each new function was created. Following deployment, the game was replayed multiple times to see if it had any bugs.
+ The game was tested throughout production when each new function was created. Following deployment, the game was replayed multiple times to see if it had any bugs.
 The objective of this test is to ensure that the Wordle game functions as expected and meets the specified requirements.
 
-
-
+![Tests](readme-images/tests.PNG)
 
 
 
 
 
 ## Fixed Bugs
--
+- None
 ## Known Bugs
 
 - None
