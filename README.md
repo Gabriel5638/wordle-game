@@ -163,10 +163,10 @@ The live site can be found here: (https://wordle-game-5638.herokuapp.com/)
 - Press enter to create the clone.
 
 # Credits
-- The code and game itself was inspired by [this youtube video](https://www.youtube.com/watch?v=04WgY32Nam4)
-- 
-- 
-- 
-- 
+- The code and how I built the game flow itself, was inspired by this [youtube video](https://www.youtube.com/watch?v=04WgY32Nam4)
+- The code commenting and the way the code is laid out were done with the help of my mentor.
+- The rules were inspired by the original [wordle game](https://www.nytimes.com/games/wordle/index.html)
+- This [website](https://www.scaler.com/topics/python/indentation-in-python/) provided me with a much better understanding of indentation.
+- This [video](https://www.youtube.com/watch?v=I269TjuEVQA) helped me understand loops.
 # Acknowledgements
-I'd like to thank my mentor, 
+I am sincerely thankful to my mentor, Marcel, for the information and advice he has provided me, which have been instrumental in my progress and development.
