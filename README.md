@@ -12,10 +12,10 @@ The live site can be found here: [Wordle](https://wordle-game-5638.herokuapp.com
 - [Features](#features)
 - [Design](#design)
 - [Inspiration](#inspiration)
-- [Technologies Used](https://github.com/SJECollins/ci-pp3-hide-and-seek#technologies-used)
-- [Testing](https://github.com/SJECollins/ci-pp3-hide-and-seek#testing)
-- [Deployment](https://github.com/SJECollins/ci-pp3-hide-and-seek#deployment)
-- [Credits](https://github.com/SJECollins/ci-pp3-hide-and-seek#credits)
+- [Technologies](#technologies-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
 
 # User Experience
 
@@ -99,6 +99,8 @@ The game's graphical limitations stem from its terminal-based design. However, i
 # Testing
 
 ## [PEP8 online check](https://pep8ci.herokuapp.com/)
+   ![pep8](readme-images/pep8.PNG)
+   ![wordspep](readme-images/pep8-words.PNG)
 
 
 
@@ -161,8 +163,10 @@ The live site can be found here: (https://wordle-game-5638.herokuapp.com/)
 - Press enter to create the clone.
 
 # Credits
-
-
-
+- 
+- 
+- 
+- 
+- 
 # Acknowledgements
 I'd like to thank my mentor, 
