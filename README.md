@@ -8,9 +8,10 @@ The live site can be found here: [Wordle](https://wordle-game-5638.herokuapp.com
 
 # Table of Contents
 
-- [User Experience](https://github.com/SJECollins/ci-pp3-hide-and-seek#user-experience)
-- [Features](https://github.com/SJECollins/ci-pp3-hide-and-seek#features)
-- [Design](https://github.com/SJECollins/ci-pp3-hide-and-seek#design)
+- [User Experience](#user-experience)
+- [Features](#features)
+- [Design](#design)
+- [Inspiration](#inspiration)
 - [Technologies Used](https://github.com/SJECollins/ci-pp3-hide-and-seek#technologies-used)
 - [Testing](https://github.com/SJECollins/ci-pp3-hide-and-seek#testing)
 - [Deployment](https://github.com/SJECollins/ci-pp3-hide-and-seek#deployment)
@@ -29,7 +30,7 @@ As a user,
 
 # Features
 ## Title
-![Title](readme-docs/title.webp)
+![Title](readme-images/wordle-ascii.PNG)
 
 The title screen of the game uses a special kind of text art called ASCII art to display the name of the game in a creative and eye-catching way. 
 It is a unique feature that adds a fun and playful element to the overall design of the game.
@@ -37,17 +38,17 @@ It is a unique feature that adds a fun and playful element to the overall design
 
 
 ## Rules section
-![Rules-section](readme-docs/intro.webp)
+![Rules-section](readme-images/rules.PNG)
 
 In the rules section, players can find detailed instructions on how to play the game, including the objective, how to make guesses, and how to interpret the feedback provided after each guess. Additionally, the rules outline the limitations of the game, such as the maximum number of guesses allowed and the fact that only five-letter words can be used in the game. The section is designed to provide players with all the information they need to play the game successfully and enjoyably.
 
 ## User Interaction
-![Guesses](readme-docs/choices.webp)
+![Guesses](readme-images/guess.PNG)
 
 In Wordle, the user interacts with the game by inputting their guesses and receiving feedback on the correctness of their guess. The user has ten attempts to guess a hidden five-letter word. Each time the user inputs a guess, the game displays the letters that are correct and in the correct position with green letters, and the letters that are correct but in the wrong position with red letters. The user can continue to input guesses until they correctly guess the hidden word or run out of attempts.
 
 ## Warning
-![Warning](readme-docs/choices.webp)
+![Warning](readme-images/warning.PNG)
 If the user enters a word with more or less than 5 letters, a message will appear informing the user that only words with 5 letters give hints.
 The warning serves as a crucial component of the game design as it reinforces the rules and expectations of the game. It also helps to prevent frustration on the part of the user, as they may become confused or discouraged if they are not informed of why their word was not accepted. Additionally, displaying a clear and concise error message helps to create a more user-friendly experience and improves the overall flow of the game. Overall, the word warning is an essential aspect of the game design that ensures the user can enjoy the game to its fullest potential.
 
@@ -63,7 +64,7 @@ The design for this game is centered around a simple, yet engaging user experien
 
 To enhance the user experience, the game features a clean and minimalist design. The colors and typography are carefully chosen to be visually pleasing and easy on the eyes.The end game prompt is designed to be unobtrusive, prompting the user to play again without interrupting the flow of the game.
 
-Overall, the design for this game was focused on providing a fun and challenging experience for users while keeping the user interface simple and intuitive. The result is a game that is both engaging and easy to play, with a design that is both visually appealing and functional
+Overall, the design for this game was focused on providing a fun and challenging experience for users while keeping the user interface simple and intuitive. The result is a game that is both engaging and easy to play, with a design that is both visually appealing and functional.
 
 ## Inspiration
 This game was inspired by the original wordle game.
@@ -92,36 +93,41 @@ The game's graphical limitations stem from its terminal-based design. However, i
 - [CSS3](https://en.wikipedia.org/wiki/CSS): styling.
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language)): programming language.
   - Libraries:
-    - 
+    - Random:  A built-in Python library used for generating random numbers and sequences, which was used in this project to select a random word from the list of available words.
+    - Os:  Another built-in Python library used for interacting with the operating system. In this project, os was used to clear the terminal screen when the game started.
+    - Termcolor:  A Python library for ANSI color formatting of text output. This was used to highlight the usable letters in the guessing system.
+    - Art:  A Python library used for creating ASCII art from text strings. In this project, art was used to display the game title in ASCII art.
+    - Words_list:  A custom module created for this project that contains a list of five-letter words used in the game.
 # Testing
 
-## [PEP8 online check](http://pep8online.com/)
+## [PEP8 online check](https://pep8ci.herokuapp.com/)
 
 
-## HTML and CSS Validation
-Though the HTML and CSS was only slightly altered from the template for the project, testing was included for completeness.
-- 
+
+
 
 ## Lighthouse
 
+lighthoust tests 
 
-The website was not designed for mobile devices.
 
 ## Testing Functionality
 
-The game was tested throughout production when each new function was created. Following deployment, the game was replayed multiple times through the different decisions to ensure it functioned correctly.
+The game was tested throughout production when each new function was created. Following deployment, the game was replayed multiple times to see if it had any bugs.
+The objective of this test is to ensure that the Wordle game functions as expected and meets the specified requirements.
 
-![Testing](readme-docs/hide-and-seek-testing.webp)
 
-## Testing User Stories
 
--h.
+
+
+
+
 
 ## Fixed Bugs
 -
 ## Known Bugs
 
-- The app does not work on mobile devices at this time. 
+- None
 
 # Deployment
 
@@ -148,7 +154,7 @@ The game was tested throughout production when each new function was created. Fo
   - Heroku will start building the app
 - The link to the app can be found at the top of the page by clicking "Open app"
 
-The live site can be found here: 
+The live site can be found here: (https://wordle-game-5638.herokuapp.com/)
 
 ## Steps to clone site:
 - In the GitHub repository, click the "Code" button.
