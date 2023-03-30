@@ -104,21 +104,11 @@ The game's graphical limitations stem from its terminal-based design. However, i
 
 
 
-
-
-## Lighthouse Test
-  ![Lighthouse](readme-images/lighthouse.PNG)
-
-
-
-
 ## Testing Functionality
  The game was tested throughout production when each new function was created. Following deployment, the game was replayed multiple times to see if it had any bugs.
 The objective of this test is to ensure that the Wordle game functions as expected and meets the specified requirements.
 
 ![Tests](readme-images/tests.PNG)
-
-
 
 
 
