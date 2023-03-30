@@ -16,7 +16,7 @@ def welcome():
 
 
 def instructions():
-    """Method to print instrictions"""
+    """Method to print instructions"""
     print("Please enter a 5-letter word")
     print("To guess the random hidden word!\n")
     print("Entering more than 5 letter words still counts as a guess.")
@@ -49,12 +49,11 @@ def main():
     """Method to hold the main game functionality"""
     max_chances = 10
     random_word = random.choice(words)
-    for _ in range(max_chances):
+    while max_chances > 0:
         user_input = input("Guess: ")
         if len(user_input) != 5:
             print(" Only 5 letter words give hints!")
             continue
-
         true_check_counter = 0
         color_dict = {}
         for i, letter in enumerate(user_input):
@@ -72,6 +71,7 @@ def main():
         ]
         print('| ' + ' '.join(colored_output) + ' |')
 
+        max_chances -= 1
         if true_check_counter == 5:
             return True, random_word
 
